@@ -10,10 +10,13 @@ def play(start=1, end=100):
     """
     Start simulator and play the game.
  
-    Use numpad keys to play the game.
-    7  -  8  -  9
-    4  -  5  -  6
-    1  -  2  -  3
+    Use numpad keys (or below mentioned alphabets) to play the game.
+    7 / Q / q -  8 / W / w -  9 / E / e
+    4 / A / a -  5 / S / s -  6 / D / d
+    1 / Z / z -  2 / X / x -  3 / C / c
+
+    Press "Esc" or "Ctrl+c" to exit.
+    (Progress will not be saved with these exit keys.)
 
     Parameters:
     start: start from this game number (default 1)
