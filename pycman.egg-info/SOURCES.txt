@@ -9,6 +9,7 @@ pycman/test_params.json
 pycman.egg-info/PKG-INFO
 pycman.egg-info/SOURCES.txt
 pycman.egg-info/dependency_links.txt
+pycman.egg-info/requires.txt
 pycman.egg-info/top_level.txt
 pycman/__pycache__/__init__.cpython-35.pyc
 pycman/__pycache__/pacman.cpython-35.pyc

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pycman",
-    version="0.2",
+    version="0.3",
     author="Sumit Kumar (Arora)",
     author_email="sam.sumitkumar@gmail.com",
     description="Pacman game simulator in Python",
@@ -14,6 +14,9 @@ setuptools.setup(
     include_package_data=True,
     url="https://github.com/reachsumit/pycman",
     packages=setuptools.find_packages(),
+    install_requires=[
+          'click',
+    ],
     classifiers=(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
