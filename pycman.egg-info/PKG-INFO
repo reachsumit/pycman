@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pycman
-Version: 0.5
+Version: 0.6
 Summary: Pacman game simulator in Python
 Home-page: https://github.com/reachsumit/pycman
 Author: Sumit Kumar (Arora)
