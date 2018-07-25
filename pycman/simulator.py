@@ -72,7 +72,7 @@ class _PacPlay:
         while True:
             try:
                 key = click.getchar()
-                if key.lower() in key_map.keys():
+                if key.lower() in key_map.keys() and key_map[key.lower()] in obs['possible_actions']:
                     action = key_map[key.lower()]
                     break
                 if key.isdigit() and int(key) in obs['possible_actions']:
@@ -82,7 +82,7 @@ class _PacPlay:
                 if isexit in exit_map:
                     print("Exit key received. exiting game now.")
                     exit()
-                print("Invalid key. Try again: ")
+                print("Invalid action! Pick one of the possible actions and try again.")
             except click.ClickException:
                 print("click exception. exiting game now.")
                 exit()
