@@ -126,7 +126,7 @@ class PacmanGame:
             self.game_window = pyglet.window.Window(width=pixels_per_square*self.field_shape[1],
                                                     height=pixels_per_square*self.field_shape[0] + score_height)
             pyglet.resource.path = [pkg_resources.resource_filename(__name__, 'sprites')]
-            print(pyglet.resource.path)
+            #print(pyglet.resource.path)
             pyglet.resource.reindex()
             self.player_img = pyglet.resource.image("pacman.png")#new file
             self.monster_img = pyglet.resource.image("monster.png")

@@ -5,6 +5,7 @@ import os, shutil
 import numpy as np
 from pycman.pacman import PacmanGame
 import pkg_resources
+import collections.abc as cabc
 
 def play(start=1, end=100):
     """
@@ -58,7 +59,8 @@ def export(name="test_pacman_log.json", path="."):
     if os.path.exists(path):
         shutil.copy2(pkg_resources.resource_filename(__name__, 'test_pacman_log.json'),os.path.join(path,name))
         print("File {} successfully generated.".format((os.path.join(path,name))))
-
+    else:
+        print("Invalid path! Please check the provided path.")
 
 class _PacPlay:
     def __init__(self, start=1, end=100):
@@ -72,6 +74,8 @@ class _PacPlay:
         while True:
             try:
                 key = click.getchar()
+                if isinstance(key,cabc.ByteString):
+                    key = chr(ord(key.decode("ascii")))
                 if key.lower() in key_map.keys() and key_map[key.lower()] in obs['possible_actions']:
                     action = key_map[key.lower()]
                     break
@@ -133,7 +137,7 @@ class _PacPlay:
             current_mean = 0
         else:
             current_mean = np.mean(np.array(total_scores)[np.array(total_scores)!=None])
-        print(current_mean)
+        #print(current_mean)
         for index, start_state in enumerate(test_start_states):
             if index < start or index>=end:
                 continue
