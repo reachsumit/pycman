@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pycman
+Version: 0.0.1
+Summary: Pacman game simulator in Python
+Home-page: https://github.com/reachsumit/pycman
+Author: Sumit Kumar (Arora)
+Author-email: sam.sumitkumar@gmail.com
+License: UNKNOWN
+Description: Simple Pacman game simulator in Python
+        
+        This is a simple Pacman game simulator in Python.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
