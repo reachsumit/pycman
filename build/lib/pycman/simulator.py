@@ -39,7 +39,7 @@ def scorecard():
     total_score = 0
     for index, game in enumerate(saved_game):
         total_score += game[-1]['total_score']
-        print("Game:{} Score:{}".format(index+1, game[-1]['total_score']))
+        print("Level:{} Score:{}".format(index+1, game[-1]['total_score']))
     print("Total score: {}. Average score: {}".format(total_score, (total_score/100.0)))
 
 def export(name="test_pacman_log.json", path="."):
@@ -54,7 +54,7 @@ def export(name="test_pacman_log.json", path="."):
     """
     if os.path.exists(path):
         shutil.copy2(pkg_resources.resource_filename(__name__, 'test_pacman_log.json'),os.path.join(path,name))
-        print("File successfully generated.")
+        print("File {} successfully generated.".format((os.path.join(path,name))))
 
 
 class _PacPlay:
@@ -62,14 +62,28 @@ class _PacPlay:
         self.test(start, end)
     
     def recommend_next_step(self, obs, eps=0.05):
+        key_map = {'q':7, 'w':8, 'e':9, 'a':4, 's':5, 'd':6, 'z':1, 'x':2, 'c':3}
+        exit_map = [3, 22, 24, 26, 27] #  Ctrl+C Ctrl+V Ctrl+X Ctrl+Z ESC
         print("Possible actions: ", obs['possible_actions'])
         print("press key: ")
         while True:
-            key = click.getchar()
-            if int(key) in obs['possible_actions']:
-                break
-            print("Invalid key. Try again: ")
-        return int(key)
+            try:
+                key = click.getchar()
+                if key.lower() in key_map.keys():
+                    action = key_map[key.lower()]
+                    break
+                if key.isdigit() and int(key) in obs['possible_actions']:
+                    action = int(key)
+                    break
+                isexit = ord(key.encode('ascii', 'ignore'))
+                if isexit in exit_map:
+                    print("Exit key received. exiting game now.")
+                    exit()
+                print("Invalid key. Try again: ")
+            except click.ClickException:
+                print("click exception. exiting game now.")
+                exit()
+        return action
     
     def preprocess(self, start_state):
         # make tuples from lists
@@ -102,8 +116,11 @@ class _PacPlay:
             total_history[i] = saved_game[i]
             total_scores[i] = saved_game[i][-1]['total_score']
         # calculate existing scores for indices between start and end
-        for i in range(start, end):
-            total_scores[i] = saved_game[i][-1]['total_score']
+        if start==0 and end==100:
+            pass
+        else:
+            for i in range(start, end):
+                total_scores[i] = saved_game[i][-1]['total_score']
         # Load everythin after end
         for i in range(end,100):
             total_history[i] = saved_game[i]
@@ -113,10 +130,9 @@ class _PacPlay:
             current_mean = 0
         else:
             current_mean = np.mean(np.array(total_scores)[np.array(total_scores)!=None])
-
+        print(current_mean)
         for index, start_state in enumerate(test_start_states):
             if index < start or index>=end:
-                print("PASS")
                 continue
             self.preprocess(start_state)
             episode_history = []
