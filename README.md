@@ -12,7 +12,9 @@ twine upload dist/*
 pip install --no-cache-dir --upgrade pycman  
 
 ### Install via Pip
+```
 pip install pycman2
+```
 (also requires pyglet: conda install -c conda-forge pyglet)
 
 ### Usage instructions
