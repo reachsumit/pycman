@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pycman",
-    version="0.7",
+    name="pycman2",
+    version="0.1",
     author="Sumit Kumar (Arora)",
     author_email="sam.sumitkumar@gmail.com",
     description="Pacman game simulator in Python",

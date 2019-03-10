@@ -26,8 +26,7 @@ def play(start=1, end=100):
     Returns:
     None
     """
-    #_PacPlay(start, end)
-    pass
+    _PacPlay(start, end)
 
 def scorecard():
     """
@@ -172,5 +171,4 @@ class _PacPlay:
         return mean_score
 
 if __name__ == "__main__":
-    #_PacPlay()
-    pass
+    _PacPlay()
