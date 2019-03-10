@@ -30,4 +30,6 @@ e.g. simulator.play(start=13, end=28)
 
 * Game will save all your progress and stepwise environment states even if you shutdown your pc. Note that it won't save progress if you quit prematurely using Esc or Ctrl+C etc
 
-* In simulator.export() you can also pass name and path parameters to specify name and path of the output file you want. Otherwise it will simply dump the result in current folder.
+* In simulator.export() you can also pass name and path parameters to specify name and path of the output file you want. Otherwise it will simply dump the result in current folder. e.g. export(name="test_pacman_log.json", path=".")  
+
+![gameplay](https://i.imgur.com/eKAdv5e.png)
