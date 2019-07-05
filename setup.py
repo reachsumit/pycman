@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pycman2",
-    version="0.2",
+    version="0.1",
     author="Sumit Kumar (Arora)",
     author_email="sam.sumitkumar@gmail.com",
     description="Pacman game simulator in Python",
